@@ -1,0 +1,7 @@
+﻿@model CmsShoppingCart.Models.ViewModels.Cart.CartVM
+
+
+
+    Your Car: @Model.Quantity items(s) $@Model.Price
+    <br />
+    @Html.ActionLink("Checkout", "Index")

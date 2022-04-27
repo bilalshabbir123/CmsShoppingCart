@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CmsShoppingCart.Models.ViewModels.Cart.CartVM>
+@{ 
+    int count = 1;
+}
+<form class="paypalform" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="shopping_cart">
+    <input type="hidden" name="charset" value="utf-8">
+    <input type="hidden" class="cart_destination" name="business" value="jultranet-facilitator@gmial.com">
+
+    <input type="hidden" name="cmd" value="_cart">
+
+    <input type="image" id="paypal_time" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+
+    <input type="hidden" class="cart_item" name="upload" value="1">
+    @foreach (var item in Model)
+    {
+        <input type="hidden" class="cart_item" name="item_name_@count" value="@item.ProductName">
+        <input type="hidden" class="cart_item" name="quantity_@count" value="@item.Price">
+        <input type="hidden" class="cart_item" name="amount_@count" value="@item.Quantity">
+        count++;
+
+    }
+
+    <input type="hidden" class="cart_item" name="currency_code" value="USD">
+   
+</form>
