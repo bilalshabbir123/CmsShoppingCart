@@ -139,8 +139,6 @@ namespace CmsShoppingCart.Controllers
             FormsAuthentication.SignOut();
             return Redirect("~/account/login");
         }
-
-
         [Authorize]
 
         public ActionResult UserNavPartial()
